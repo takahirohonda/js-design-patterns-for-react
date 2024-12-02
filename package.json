@@ -1,0 +1,8 @@
+{
+  "name": "js-design-patterns-for-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:takahirohonda/js-design-patterns-for-react.git",
+  "author": "takahirohonda <thon6thon6@hotmail.com>",
+  "license": "MIT"
+}
