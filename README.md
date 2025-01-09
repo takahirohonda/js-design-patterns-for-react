@@ -20,8 +20,21 @@ nx g @nx/react:library libs/my-react-lib
 # Or just add lib
 nx g lib libs/my-lib
 nx add @nx/next
-nx g @nx/next:app apps/my-new-app
+nx g @nx/next:app apps/next-app
 # Add lib for next
 nx add @nx/next:lib
 nx g @nx/next:lib libs/my-next-lib
+```
+
+## Upgrading Nx and all the associated nx modules
+
+```bash
+yarn nx report
+yarn remove nx
+yarn add nx@latest
+# This will create a migration file (migration.json)
+# And update the dependencies in package.json.
+yarn nx migrate latest
+yarn install
+yarn nx migrate --run-migrations
 ```
