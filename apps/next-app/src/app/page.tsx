@@ -1,7 +1,12 @@
+import Link from 'next/link'
+
 const HomePage = () => {
   return (
-    <main>
+    <div>
       <h1>Home Page</h1>
-    </main>
+      <Link href="/pub-sub-example">PubSub Example</Link>
+    </div>
   )
 }
+
+export default HomePage
