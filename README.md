@@ -38,3 +38,7 @@ yarn nx migrate latest
 yarn install
 yarn nx migrate --run-migrations
 ```
+
+## Random reference
+
+[Styling button with tailwind examples](https://flowbite.com/docs/components/buttons/)
