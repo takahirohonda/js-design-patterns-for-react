@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { PubSubExample as PubSub } from '../../utils/PubSubExample'
+import { PubSubExample as PubSub } from '../../utils/PubSub/PubSubExample'
 
 const pubsub = new PubSub()
 
