@@ -13,8 +13,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="container">
-          <main className="flex flex-col">{children}</main>
+        <div className="h-screen overflow-y-auto bg-neutral-800">
+          <div className="container">
+            <main className="flex flex-col">{children}</main>
+          </div>
         </div>
       </body>
     </html>
