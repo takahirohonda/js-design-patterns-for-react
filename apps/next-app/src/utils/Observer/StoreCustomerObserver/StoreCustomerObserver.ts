@@ -1,29 +1,22 @@
-/* eslint-disable @typescript-eslint/no-unsafe-function-type */
-class Customers {
-  public customers: Function[] = []
-
-  register(callback: Function) {
-    if (this.customers.find((customer) => customer === callback)) {
-      return
-    }
-    this.customers.push(callback)
-  }
-
-  unregister(callback: Function) {
-    this.customers.filter((customerCallback) => customerCallback === callback)
-  }
+type Product = {
+  id: string
+  name: string
 }
 
 class Store {
-  private _customers: Customers
+  private observers: Customer[] = []
 
-  constructor(customers: Customers) {
-    this._customers = customers
+  add(observer: Customer) {
+    this.observers.push(observer)
   }
 
-  notify() {
-    this._customers.customers.forEach((callback) => {
-      callback()
-    })
+  notify(product: Product) {
+    this.observers.forEach((observer) => observer.update(product))
+  }
+}
+
+class Customer {
+  update(product: Product) {
+    console.log(`New product has been released: ${JSON.stringify(product)}`)
   }
 }
