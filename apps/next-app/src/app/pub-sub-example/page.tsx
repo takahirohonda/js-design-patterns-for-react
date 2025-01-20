@@ -9,6 +9,10 @@ const PubSubExample = () => {
 
   useEffect(() => {
     pubsub.subscribe('click', (data: any) => setMessage(data.data))
+
+    return () => {
+      pubsub.unsubscribe('click', (data: any) => setMessage(data.data))
+    }
   }, [])
   const onClick = () => {
     pubsub.publish('click', { data: 'hello' })
