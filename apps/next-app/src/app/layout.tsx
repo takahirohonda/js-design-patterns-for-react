@@ -1,3 +1,4 @@
+import Navbar from '../components/Navbar'
 import './global.css'
 
 export const metadata = {
@@ -15,6 +16,7 @@ export default function RootLayout({
       <body>
         <div className="h-screen overflow-y-auto bg-neutral-800">
           <div className="container">
+            <Navbar />
             <main className="flex flex-col">{children}</main>
           </div>
         </div>
