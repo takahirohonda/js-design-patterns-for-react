@@ -1,11 +1,27 @@
-const listeners: Record<string, []>[] | [] = []
+const listeners: Record<string, ((data?: unknown) => void)[]> = {}
 
-const subscribe = (eventName, callback) => {
+export const subscribe = (
+  eventName: string,
+  callback: (data?: unknown) => void
+) => {
+  if (!listeners[eventName]) {
+    listeners[eventName] = []
+  }
 
-  const event = listeners.map((listener) => listener[eventName])
-  listeners.map((listener) => {
+  listeners[eventName].push(callback)
+}
 
-    if (listener[eventName])
-  })
- 
+export const unsubscribe = (
+  eventName: string,
+  callback: (data?: unknown) => void
+) => {
+  if (listeners[eventName]) {
+    listeners[eventName].map((listener) => listener !== callback)
+  }
+}
+
+export const publish = (eventName: string, data: unknown) => {
+  if (listeners[eventName]) {
+    listeners[eventName].forEach((listener) => listener(data))
+  }
 }
