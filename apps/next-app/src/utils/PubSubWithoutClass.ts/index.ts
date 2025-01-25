@@ -1,4 +1,4 @@
-const listeners: Record<string, ((data?: unknown) => void)[]> = {}
+export const listeners: Record<string, ((data?: unknown) => void)[]> = {}
 
 export const subscribe = (
   eventName: string,
@@ -8,7 +8,14 @@ export const subscribe = (
     listeners[eventName] = []
   }
 
-  listeners[eventName].push(callback)
+  const hasCallback = listeners[eventName].find(
+    (listener) => listener === callback
+  )
+
+  console.log(`hasCallback: ${hasCallback}`)
+  if (!hasCallback) {
+    listeners[eventName].push(callback)
+  }
 }
 
 export const unsubscribe = (
