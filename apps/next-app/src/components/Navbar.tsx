@@ -47,13 +47,19 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a href="/about" className="text-white hover:text-gray-400">
-              About
+            <a
+              href="/pub-sub-example"
+              className="text-white hover:text-gray-400"
+            >
+              PubSub
             </a>
           </li>
           <li>
-            <a href="/services" className="text-white hover:text-gray-400">
-              Services
+            <a
+              href="/observer-example"
+              className="text-white hover:text-gray-400"
+            >
+              Observer
             </a>
           </li>
           <li>
