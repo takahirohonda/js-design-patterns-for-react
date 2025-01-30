@@ -69,6 +69,7 @@
     "add": "^2.0.6",
     "axios": "^1.6.0",
     "express": "~4.18.1",
+    "framer-motion": "^7",
     "next": "14.2.16",
     "react": "18.3.1",
     "react-dom": "18.3.1",
