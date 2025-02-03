@@ -156,3 +156,26 @@ function makeObservable(target) {
   })
 }
 ```
+
+## MORE...
+
+Why does symbol prevent overwriting...
+
+```ts
+const handlers = Symbol('handlers')
+const myObject = {}
+
+// Correctly assign to the Symbol key
+myObject[handlers] = [1, 2, 3]
+
+// Assign a normal property (string key)
+myObject['handlers'] = 'hello'
+
+console.log(myObject[handlers]) // ✅ [1, 2, 3] (Still exists!)
+console.log(myObject['handlers']) // ❌ 'hello' (But this is a different property!)
+```
+
+- myObject[handlers] is safe, because it's using a Symbol.
+- myObject['handlers'] is just a normal string key, separate from the Symbol.
+
+🔹 So even if the user does user.handlers = [], it won’t touch user[Symbol('handlers')]!
