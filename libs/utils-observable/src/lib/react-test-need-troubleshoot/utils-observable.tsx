@@ -1,13 +1,8 @@
-import styled from 'tailwind'
-
-const StyledUtilsObservable = styled.div`
-  color: pink;
-`
 export function UtilsObservable() {
   return (
-    <StyledUtilsObservable>
+    <div>
       <h1>Welcome to UtilsObservable!</h1>
-    </StyledUtilsObservable>
+    </div>
   )
 }
 
