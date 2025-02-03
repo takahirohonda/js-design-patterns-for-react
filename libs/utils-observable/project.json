@@ -1,0 +1,9 @@
+{
+  "name": "utils-observable",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/utils-observable/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project utils-observable --web",
+  "targets": {}
+}
