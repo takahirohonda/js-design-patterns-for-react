@@ -21,6 +21,7 @@ describe('binarySearch', () => {
     { target: 75, expectedIndex: 6 },
     { target: 85, expectedIndex: 7 },
     { target: 95, expectedIndex: 8 },
+    { target: 33, expectedIndex: -1 },
   ])(
     'returns $expectedCopy when target is $target',
     ({ target, expectedIndex }) => {
