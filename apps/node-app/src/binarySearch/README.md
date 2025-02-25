@@ -8,7 +8,7 @@ In the array below, find the position of 67:
 
 [2, 3, 5, 14, 34, 67, 75, 85, 95]
 
-Big O
+Big O -> O(log n), logarithmic
 
 ```ts
 export const binarySearch = (array: number[], target: number) => {
