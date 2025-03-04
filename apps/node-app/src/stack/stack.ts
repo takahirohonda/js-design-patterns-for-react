@@ -1,37 +1,39 @@
 interface SNode<T> {
   value: T
-  next?: SNode<T>
   prev?: SNode<T>
 }
 
 export default class Stack<T> {
+  public length: number
   private head?: SNode<T>
-  private previousHead?: SNode<T>
 
   constructor() {
     this.head = undefined
-    this.previousHead = undefined
   }
 
-  enqueue(item: T): void {
+  push(item: T): void {
+    this.length++
     const node = { value: item } as SNode<T>
     if (!this.head) {
       this.head = node
       return
     }
 
-    this.previousHead = this.head.next
-    this.head.next = this.head
+    node.prev = this.head
     this.head = node
   }
 
-  deque(): T | undefined {
-    if (!this.head) {
-      return undefined
+  pop(): T | undefined {
+    this.length = Math.max(0, this.length - 1)
+    if (this.length === 0) {
+      const head = this.head
+      this.head = undefined
+      return head?.value
     }
 
-    this.head = this.head.next
-    this.head.next = this.previousHead
+    const currentHead = this.head
+    this.head = currentHead.prev
+    return currentHead.value
   }
 
   peek(): T | undefined {
