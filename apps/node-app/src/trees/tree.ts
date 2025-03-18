@@ -12,7 +12,15 @@ export const walk = (
     return path
   }
 
+  // pre
   path.push(curr.value)
+
+  // recurse
+  walk(curr.left, path)
+  walk(curr.right, path)
+
+  // post
+  return path
 }
 
 export const preOrderSearch = (head: BinaryNode<number>): number[] => {

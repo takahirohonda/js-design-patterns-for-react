@@ -2,7 +2,7 @@
 
 Our file systems are trees.
 
-## Going through a tree
+## Going through a binary tree
 
 ```mermaid
 flowchart TD
