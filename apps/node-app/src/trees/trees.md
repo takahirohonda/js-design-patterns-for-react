@@ -14,7 +14,7 @@ flowchart TD
   idC((C))-->idH((H))
 ```
 
-Visiting node by recursing to the left
+Visiting all the nodes by recursing to the left
 
 [A, B, C, F, C, G, H] - Starting with the root node.
 
