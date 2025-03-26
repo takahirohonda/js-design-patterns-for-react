@@ -34,11 +34,11 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
   append(item: T): void {
     const newNode: Node<T> = { value: item }
 
-    if (this._length === 0) {
+    if (this._length === 0 && this.tail) {
       this.head = newNode
       this.tail = newNode
     } else {
-      this.tail!.next = newNode
+      this.tail.next = newNode
       newNode.prev = this.tail
       this.tail = newNode
     }
@@ -50,12 +50,12 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
   prepend(item: T): void {
     const newNode: Node<T> = { value: item }
 
-    if (this._length === 0) {
+    if (this._length === 0 && this.head) {
       this.head = newNode
       this.tail = newNode
     } else {
       newNode.next = this.head
-      this.head!.prev = newNode
+      this.head.prev = newNode
       this.head = newNode
     }
 
@@ -83,12 +83,12 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
     let currentIndex = 0
 
     while (currentIndex < index - 1) {
-      current = current!.next
+      current = current.next
       currentIndex++
     }
 
-    const nextNode = current!.next
-    current!.next = newNode
+    const nextNode = current.next
+    current.next = newNode
     newNode.prev = current
     newNode.next = nextNode
     if (nextNode) {
@@ -108,11 +108,11 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
     let currentIndex = 0
 
     while (currentIndex < index) {
-      current = current!.next
+      current = current.next
       currentIndex++
     }
 
-    return current!.value
+    return current.value
   }
 
   // Remove a specific item from the list
@@ -149,8 +149,8 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
     }
 
     if (index === 0) {
-      const value = this.head!.value
-      this.head = this.head!.next
+      const value = this.head.value
+      this.head = this.head.next
       if (this.head) {
         this.head.prev = undefined
       }
@@ -159,8 +159,8 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
     }
 
     if (index === this._length - 1) {
-      const value = this.tail!.value
-      this.tail = this.tail!.prev
+      const value = this.tail.value
+      this.tail = this.tail.prev
       if (this.tail) {
         this.tail.next = undefined
       }
@@ -172,13 +172,13 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
     let currentIndex = 0
 
     while (currentIndex < index) {
-      current = current!.next
+      current = current.next
       currentIndex++
     }
 
-    const value = current!.value
-    const prevNode = current!.prev
-    const nextNode = current!.next
+    const value = current.value
+    const prevNode = current.prev
+    const nextNode = current.next
 
     if (prevNode) {
       prevNode.next = nextNode
