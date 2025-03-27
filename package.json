@@ -5,8 +5,20 @@
   "repository": "git@github.com:takahirohonda/js-design-patterns-for-react.git",
   "author": "TH",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./as-test//build/release.js",
+      "types": "./as-test/build/release.d.ts"
+    }
+  },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "asbuild:debug": "asc as-test/assembly/index.ts --target debug --config ./as-test/asconfig.json",
+    "asbuild:release": "asc as-test/assembly/index.ts --target release --config ./as-test/asconfig.json",
+    "asbuild": "yarn asbuild:debug && yarn asbuild:release",
+    "as:test": "node ./as-test/tests",
+    "as:start": "npx serve ./as-test"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -38,6 +50,7 @@
     "@vitejs/plugin-react": "^4.2.0",
     "@vitest/coverage-v8": "^1.0.4",
     "@vitest/ui": "^1.3.1",
+    "assemblyscript": "^0.27.35",
     "autoprefixer": "10.4.13",
     "babel-jest": "^29.7.0",
     "esbuild": "^0.19.2",
