@@ -8,9 +8,9 @@
  (elem $0 (i32.const 1))
  (export "add" (func $as-test/assembly/index/add))
  (export "memory" (memory $0))
- (func $as-test/assembly/index/add (param $0 i32) (param $1 i32) (result i32)
-  local.get $0
-  local.get $1
+ (func $as-test/assembly/index/add (param $a i32) (param $b i32) (result i32)
+  local.get $a
+  local.get $b
   i32.add
   return
  )
