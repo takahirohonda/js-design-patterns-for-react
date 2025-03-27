@@ -1,14 +1,19 @@
 'use client'
 
-import Link from 'next/link'
 import React, { useState } from 'react'
-
+import { LinkList } from './Navbar/LinkList'
+import { twMerge } from 'tailwind-merge'
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen)
   }
+
+  const mobileNavClass = twMerge(
+    isMobileMenuOpen ? 'block' : 'hidden',
+    'md:hidden absolute top-16 left-0 right-0 bg-gray-800 p-4 space-y-4'
+  )
 
   return (
     <nav className="bg-gray-800 p-4">
@@ -41,63 +46,12 @@ const Navbar = () => {
 
         {/* Navigation Links (Desktop) */}
         <ul className="hidden md:flex md:items-center md:space-x-6">
-          <li>
-            <Link href="/" className="text-white hover:text-gray-400">
-              Home
-            </Link>
-          </li>
-          <li>
-            <a
-              href="/pub-sub-example"
-              className="text-white hover:text-gray-400"
-            >
-              PubSub
-            </a>
-          </li>
-          <li>
-            <a
-              href="/observer-example"
-              className="text-white hover:text-gray-400"
-            >
-              Observer
-            </a>
-          </li>
-          <li>
-            <a href="/contact" className="text-white hover:text-gray-400">
-              Contact
-            </a>
-          </li>
+          <LinkList />
         </ul>
 
         {/* Navigation Links (Mobile) */}
-        <ul
-          className={`${
-            isMobileMenuOpen ? 'block' : 'hidden'
-          } md:hidden absolute top-16 left-0 right-0 bg-gray-800 p-4 space-y-4`}
-        >
-          <li>
-            <Link href="/" className="text-white hover:text-gray-400 block">
-              Home
-            </Link>
-          </li>
-          <li>
-            <a href="/about" className="text-white hover:text-gray-400 block">
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="/services"
-              className="text-white hover:text-gray-400 block"
-            >
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="/contact" className="text-white hover:text-gray-400 block">
-              Contact
-            </a>
-          </li>
+        <ul className={mobileNavClass}>
+          <LinkList />
         </ul>
       </div>
     </nav>
