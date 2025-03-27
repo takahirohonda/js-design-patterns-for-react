@@ -8,8 +8,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "asbuild:debug": "asc as-test/assembly/index.ts --target as-test/debug --config as-test/asconfig.json --bindings esm",
-    "asbuild:release": "asc as-test/assembly/index.ts --target as-test/release --config as-test/asconfig.json --bindings esm",
+    "asbuild:debug": "asc as-test/assembly/index.ts --target as-test/debug --config ./as-test/asconfig.json",
+    "asbuild:release": "asc as-test/assembly/index.ts --target as-test/release --config ./as-test/asconfig.json",
     "asbuild": "yarn asbuild:debug && yarn asbuild:release",
     "as:test": "node ./as-test/tests",
     "as:start": "npx serve ./as-test/index.html"
