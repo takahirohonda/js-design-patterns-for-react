@@ -42,3 +42,11 @@ yarn nx migrate --run-migrations
 ## Random reference
 
 [Styling button with tailwind examples](https://flowbite.com/docs/components/buttons/)
+
+##
+
+```
+ "asbuild:debug": "asc as-test/assembly/index.ts --target as-test/debug --config ./as-test/asconfig.json",
+    "asbuild:release": "asc as-test/assembly/index.ts --target as-test/release --config ./as-test/asconfig.json",
+
+```

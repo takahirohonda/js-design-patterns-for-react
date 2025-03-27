@@ -10,6 +10,26 @@ yarn add -D assemblyscript
 npx asinit ./as-test
 ```
 
+## 2. Troubleshooting
+
+1. `npx serve` needs to have a folder name
+
+```bash
+ "as:start": "npx serve ./as-test"
+ # this errors because it thinks index.html is a folder
+ "as:start": "npx serve ./as-test"
+```
+
+2. target is the property in the config file
+
+```bash
+ "asbuild:debug": "asc as-test/assembly/index.ts --target debug --config ./as-test/asconfig.json",
+# this doesn't work because target is not a folder path
+"asbuild:debug": "asc as-test/assembly/index.ts --target as-test/debug --config ./as-test/asconfig.json",
+```
+
+# Ref
+
 ```bash
 This command will make sure that the following files exist in the project
 directory '/Users/taka/code/mdh/js-design-patterns-for-react/as-test':

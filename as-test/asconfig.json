@@ -1,15 +1,15 @@
 {
   "targets": {
     "debug": {
-      "outFile": "as-test/build/debug.wasm",
-      "textFile": "as-test/build/debug.wat",
+      "outFile": "./build/debug.wasm",
+      "textFile": "./build/debug.wat",
       "sourceMap": true,
       "debug": true,
       "bindings": "ems"
     },
     "release": {
-      "outFile": "as-test/uild/release.wasm",
-      "textFile": "as-test/build/release.wat",
+      "outFile": "./build/release.wasm",
+      "textFile": "./build/release.wat",
       "sourceMap": true,
       "optimizeLevel": 3,
       "shrinkLevel": 0,
