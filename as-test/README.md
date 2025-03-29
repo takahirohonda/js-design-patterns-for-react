@@ -10,7 +10,29 @@ yarn add -D assemblyscript
 npx asinit ./as-test
 ```
 
-## 2. Troubleshooting
+## 2. Web Assembly Reference
+
+### 2-1. browser
+
+All modern browsers have the `WebAssembly` global object with 5 static methods.
+
+`WebAssembly.compile()` - Compile wasm
+`WebAssembly.compileStreaming()` - Compile wasm from a streamed source
+`WebAssembly.instantiate()` - Compile and instantiate wasm
+`WebAssembly.instantiateStreaming()` - Compile and instantiate wasm from a streamed source
+`WebAssembly.validate()` - Checks if wasm code is valid
+
+When we are fetching wasm from our server, we can use `instantiate()` and `instantiateStreaming()`. -> see the folder, `js/loader.js`
+
+### 2-2. Memory
+
+In Web Assembly, memory is linear.
+
+JavaScript memory uses both a stack and heap. A heap is dynamic, non-linear memory used by a program to arbitrarily read and store data.
+
+Memories in JS and Web Assembly
+
+## 3. Troubleshooting
 
 1. `npx serve` needs to have a folder name
 
