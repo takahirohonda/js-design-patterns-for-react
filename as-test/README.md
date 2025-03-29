@@ -30,7 +30,24 @@ In Web Assembly, memory is linear.
 
 JavaScript memory uses both a stack and heap. A heap is dynamic, non-linear memory used by a program to arbitrarily read and store data.
 
-Memories in JS and Web Assembly
+**Memory**
+
+`WebAssembly.Memory`: memory shared by JS and WA. They can pass data back and forth in this.
+
+**Arrays**
+
+- `ArrayBuffer`: an object that represents raw binary data.
+- `SharedArrayBuffer`: an ArrayBuffer that represents a fixed-length portion of memory that can be shared by multiple processes.
+- `TypedArray`: Because ArrayBuffer SharedArrayBuffer are merely representations of raw binary data, we need to use a TypedArray to properly coerce the raw data into something useable by our processes.
+
+```ts
+// Create an ArrayBuffer and allocate 1 page (64k) of memory
+const memory = new WebAssembly.Memory({ initial: 1, shared: true })
+// Create an array-like object where each index is a pointer to a 16-bit unsigned integer
+const u16Array = new Uint16Array(memory.buffer)
+// We can write directly to memory which is accessible by both JS and WA
+u16Array[0] = 42
+```
 
 ## 3. Troubleshooting
 

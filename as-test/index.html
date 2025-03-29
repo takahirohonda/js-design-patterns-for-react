@@ -2,9 +2,30 @@
 <html lang="en">
   <head>
     <script type="module">
-      import { add, minusOne } from './build/release.js'
+      // memory is exported by default from web assembly
+      import {
+        add,
+        minusOne,
+        memory,
+        readMemory,
+        isPrimeWasm,
+      } from './build/release.js'
       document.querySelector('.list-1').innerText = add(1, 2)
       document.querySelector('.list-2').innerText = minusOne(10)
+
+      const memoryArray = new Uint8Array(memory.buffer)
+      document.querySelector(
+        '.list-3'
+      ).innerText = `Values set by Web assembly: ${memoryArray[0]} & ${memoryArray[1]}`
+
+      memoryArray[2] = 42
+      document.querySelector(
+        '.list-4'
+      ).innerText = `Values set by JS: ${memoryArray[2]}`
+
+      // performance test
+      import { performanceTestWithPrimeNumber } from './performanceTest.js'
+      console.table(performanceTestWithPrimeNumber(23456, isPrimeWasm))
     </script>
   </head>
   <body>
@@ -13,6 +34,8 @@
     <ul>
       <li class="list-1"></li>
       <li class="list-2"></li>
+      <li class="list-3"></li>
+      <li class="list-4"></li>
     </ul>
   </body>
 </html>
