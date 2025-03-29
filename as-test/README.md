@@ -69,6 +69,16 @@ u16Array[0] = 42
 
 # Ref
 
+Wasi - WebAssembly System Interface. A common API to operating-system-like features.
+Made with Web Assembly - An open source showcase of awesome production applications, side projects, and use cases made with WebAssembly.
+ASBind - Library to handle passing high-level data structures between AssemblyScript and JavaScript
+Binaryen - Binaryen is a compiler and toolchain infrastructure library for WebAssembly.
+
+- [Emscripten](https://emscripten.org/docs/getting_started/Tutorial.html) - A complete compiler toolchain to WebAssembly.
+
+Built With AssemblyScript - A collection of AssemblyScript projects
+Interference AssemblyScript - Advanced example of using AssemblyScript
+
 ```bash
 This command will make sure that the following files exist in the project
 directory '/Users/taka/code/mdh/js-design-patterns-for-react/as-test':
