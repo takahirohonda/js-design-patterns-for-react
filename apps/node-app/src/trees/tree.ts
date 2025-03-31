@@ -4,25 +4,41 @@ type BinaryNode<T> = {
   left?: BinaryNode<T>
 }
 
-export const walk = (
-  curr: BinaryNode<number> | undefined,
-  path: number[]
-): number[] => {
-  if (!curr) {
-    return path
+export class Tree<T> {
+  rootNode?: BinaryNode<T>
+  nodeCount: number
+
+  constructor() {
+    this.nodeCount = 0
   }
 
-  // pre
-  path.push(curr.value)
+  addNode(value: T) {
+    const newNode: BinaryNode<T> = { value }
 
-  // recurse
-  walk(curr.left, path)
-  walk(curr.right, path)
+    if (!this.rootNode) {
+      this.rootNode = newNode
+      this.nodeCount += 1
+      return
+    }
 
-  // post
-  return path
-}
+    this.insertNode(this.rootNode, newNode)
+    this.nodeCount += 1
+  }
 
-export const preOrderSearch = (head: BinaryNode<number>): number[] => {
-  return walk(head, [])
+  private insertNode(current: BinaryNode<T>, newNode: BinaryNode<T>) {
+    // This makes it a binary search tree
+    if (newNode.value < current.value) {
+      if (!current.left) {
+        current.left = newNode
+      } else {
+        this.insertNode(current.left, newNode)
+      }
+    } else {
+      if (!current.right) {
+        current.right = newNode
+      } else {
+        this.insertNode(current.right, newNode)
+      }
+    }
+  }
 }
