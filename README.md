@@ -42,3 +42,17 @@ yarn nx migrate --run-migrations
 ## Random reference
 
 [Styling button with tailwind examples](https://flowbite.com/docs/components/buttons/)
+
+# to make web assembly yarn command to work...
+
+Need to add them in package.json... ts-node stops working if I have them in the package.json.
+
+```json
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./as-test//build/release.js",
+      "types": "./as-test/build/release.d.ts"
+    }
+  },
+```
