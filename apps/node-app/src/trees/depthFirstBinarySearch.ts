@@ -23,6 +23,6 @@ export const walk = (
   return path
 }
 
-export const preOrderSearch = (head: BinaryNode<number>): number[] => {
+export const depthFirstBinarySearch = (head: BinaryNode<number>): number[] => {
   return walk(head, [])
 }

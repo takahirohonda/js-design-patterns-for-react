@@ -5,13 +5,6 @@
   "repository": "git@github.com:takahirohonda/js-design-patterns-for-react.git",
   "author": "TH",
   "license": "MIT",
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": "./as-test//build/release.js",
-      "types": "./as-test/build/release.d.ts"
-    }
-  },
   "scripts": {
     "test": "jest",
     "asbuild:debug": "asc as-test/assembly/index.ts --target debug --config ./as-test/asconfig.json",

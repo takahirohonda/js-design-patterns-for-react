@@ -1,5 +1,5 @@
 import { Tree } from './tree'
-import { preOrderSearch } from './treeWalk'
+import { depthFirstBinarySearch } from './depthFirstBinarySearch'
 
 const tree = new Tree<number>()
 
@@ -12,6 +12,6 @@ tree.addNode(7)
 describe('treeWalk', () => {
   it('should walk the tree', () => {
     console.log(tree)
-    // expect(preOrderSearch(tree.rootNode)).toEqual([1])
+    expect(depthFirstBinarySearch(tree.rootNode)).toEqual([10, 5, 2, 7, 15])
   })
 })

@@ -45,7 +45,7 @@ yarn nx migrate --run-migrations
 
 # to make web assembly yarn command to work...
 
-Need to add them in package.json... ts-node stops working if I have them in the package.json.
+Need to add them in package.json... ts-node & jest stops working if I have them in the package.json.
 
 ```json
   "type": "module",
