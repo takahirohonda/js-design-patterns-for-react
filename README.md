@@ -45,7 +45,7 @@ yarn nx migrate --run-migrations
 
 # to make web assembly yarn command to work...
 
-Need to add them in package.json... ts-node & jest stops working if I have them in the package.json.
+This is required to be added in `package.json` for `as-test` project to properly use web assembly compiled code. However, this changes how Node deals with `.ts` file. `Jest` or `ts-node` needs to be configured for EMS properly.
 
 ```json
   "type": "module",
@@ -55,4 +55,18 @@ Need to add them in package.json... ts-node & jest stops working if I have them 
       "types": "./as-test/build/release.d.ts"
     }
   },
+```
+
+```bash
+node --loader ts-node/esm
+```
+
+or add this in `jest.config.js`
+
+```js
+export default {
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', { useESM: true }],
+  },
+}
 ```

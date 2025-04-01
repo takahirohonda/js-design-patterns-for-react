@@ -72,3 +72,24 @@ export class Tree<T> {
   }
 }
 ```
+
+```json
+{
+  "nodeCount": 5,
+  "rootNode": {
+    "value": 10,
+    "left": {
+      "value": 5,
+      "left": {
+        "value": 2
+      },
+      "right": {
+        "value": 7
+      }
+    },
+    "right": {
+      "value": 15
+    }
+  }
+}
+```
