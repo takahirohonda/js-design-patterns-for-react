@@ -73,23 +73,35 @@ export class Tree<T> {
 }
 ```
 
-```json
-{
-  "nodeCount": 5,
-  "rootNode": {
-    "value": 10,
-    "left": {
-      "value": 5,
-      "left": {
-        "value": 2
-      },
-      "right": {
-        "value": 7
-      }
-    },
-    "right": {
-      "value": 15
-    }
-  }
-}
+```mermaid
+graph TD;
+    10 -->|left| 5;
+    10 -->|right| 15;
+
+    5 -->|left| 2;graph TD;
+    10 -->|left| 5;
+    10 -->|right| 15;
+
+    5 -->|left| 2;
+    5 -->|right| 7;
+
+    2 -->|left| 10;
+
+    15 -->|left| 9;
+    15 -->|right| 8;
+    5 -->|right| 7;
+
+    2 -->|left| 10;
+
+    15 -->|left| 9;
+    15 -->|right| 8;
 ```
+
+        10
+       /  \
+      5    15
+     / \   /  \
+    2   7 9    8
+
+/
+10

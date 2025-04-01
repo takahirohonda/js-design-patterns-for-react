@@ -5,22 +5,22 @@ type BinaryNode<T> = {
 }
 
 const walk = (node: BinaryNode<number> | undefined, path: number[]) => {
-  path.push(node.value)
-
-  if (!node) {
+  if (!node.left) {
     return path
   }
-
-  walk(node.left, path)
+  path.push(node.left.value)
 
   if (!node.right) {
     return path
   }
+  path.push(node.right.value)
 
+  walk(node.left, path)
   walk(node.right, path)
+
   return path
 }
 
 export const breadthFirstBinaryWalk = (rootNode: BinaryNode<number>) => {
-  return walk(rootNode, [])
+  return walk(rootNode, [rootNode.value])
 }

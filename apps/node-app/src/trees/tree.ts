@@ -1,7 +1,7 @@
 type BinaryNode<T> = {
   value: T
-  right?: BinaryNode<T>
   left?: BinaryNode<T>
+  right?: BinaryNode<T>
 }
 
 export class Tree<T> {
@@ -25,20 +25,25 @@ export class Tree<T> {
     this.nodeCount += 1
   }
 
-  private insertNode(current: BinaryNode<T>, newNode: BinaryNode<T>) {
-    // This makes it a binary search tree
-    if (newNode.value < current.value) {
+  private insertNode(root: BinaryNode<T>, newNode: BinaryNode<T>) {
+    const queue: BinaryNode<T>[] = [root]
+
+    while (queue.length > 0) {
+      const current = queue.shift()!
+
+      // Insert on the left if available
       if (!current.left) {
         current.left = newNode
-      } else {
-        this.insertNode(current.left, newNode)
+        return
       }
-    } else {
+      queue.push(current.left)
+
+      // Insert on the right if available
       if (!current.right) {
         current.right = newNode
-      } else {
-        this.insertNode(current.right, newNode)
+        return
       }
+      queue.push(current.right)
     }
   }
 }
