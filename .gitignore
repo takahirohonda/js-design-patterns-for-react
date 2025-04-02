@@ -49,3 +49,4 @@ out
 *.pem
 
 vite.config.*.timestamp*
+vitest.config.*.timestamp*
