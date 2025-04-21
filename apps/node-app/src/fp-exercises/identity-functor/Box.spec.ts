@@ -14,8 +14,8 @@ describe('Box', () => {
       Box(str)
         .map((x) => x.trim())
         .map((x) => parseInt(x))
-        .map((x) => x + 1).inspect
+        .fold((x) => x + 1)
 
-    expect(refactoredVer('12  ')).toBe('Box(13)')
+    expect(refactoredVer('12  ')).toBe(13)
   })
 })
