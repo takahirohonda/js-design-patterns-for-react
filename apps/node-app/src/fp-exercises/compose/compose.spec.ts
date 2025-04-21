@@ -1,3 +1,5 @@
+import { compose, pipe } from './compose'
+
 describe('compose exercises', () => {
   describe('compose - intro', () => {
     const toUpper = (str) => str.toUpperCase()
@@ -30,6 +32,18 @@ describe('compose exercises', () => {
       expect(pipe(toUpper, exclaim)('hello')).toBe('HELLO!')
       expect(pipe(pipe(first, exclaim), toUpper)('hell')).toBe('H!')
       expect(pipe(pipe(curry(add)('&'), toUpper), first)('hello')).toBe('&')
+    })
+  })
+
+  describe('testing my custom compose & pipe', () => {
+    it('should compose', () => {
+      const double = (x) => x * 2
+      const square = (x) => x * x
+      const composed = compose(square, double)
+      expect(composed(5)).toBe(100)
+
+      const piped = pipe(square, double)
+      expect(piped(5)).toBe(50)
     })
   })
 })

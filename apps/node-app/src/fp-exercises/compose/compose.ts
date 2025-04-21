@@ -8,9 +8,17 @@ const exclaim = (str) => str + '!'
 
 const first = (xs) => xs[0]
 
-const shout = composeWith2Functions(exclaim, toUpper)
+export const shout = composeWith2Functions(exclaim, toUpper)
 
-const shoutFirst = composeWith2Functions(
+export const shoutFirst = composeWith2Functions(
   composeWith2Functions(first, exclaim),
   toUpper
 )
+
+export const compose = (...fns) => {
+  return (x) => fns.reduceRight((acc, fn) => fn(acc), x)
+}
+
+export const pipe = (...fns) => {
+  return (x) => fns.reduce((acc, fn) => fn(acc), x)
+}
