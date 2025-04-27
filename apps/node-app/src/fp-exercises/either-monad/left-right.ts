@@ -21,3 +21,8 @@ export const tryCatch = (f) => {
     return Left(e)
   }
 }
+
+export const logIt = (x) => {
+  console.log(x)
+  return x
+}

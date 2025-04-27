@@ -7,7 +7,7 @@ The Either monad in JavaScript is a pattern for handling computations that can r
 - [monads](<https://en.wikipedia.org/wiki/Monad_(functional_programming)>) are the way to structure computations as a sequence of steps.
 - https://blog.logrocket.com/javascript-either-monad-error-handling/
 
-## Exercise 1
+## Intro Exercise 1
 
 ```js
 const findColor = (name) =>
@@ -34,7 +34,7 @@ describe('Either Monad Exercise', () => {
 })
 ```
 
-## Exercise 2
+## Intro Exercise 2
 
 Rewrite this with either monad
 
@@ -54,4 +54,92 @@ const getPort = () => {
 const result = getPort()
 
 console.log(result)
+```
+
+# More exercises
+
+```ts
+const DB_REGEX = /postgres:\/\/([^:]+):([^@]+)@.*?\/(.+)$/i
+
+// Exercise: Either
+// Goal: Refactor each example using Either
+// Bonus: no curlies
+// =========================
+
+// Ex1: Refactor streetName to use Either instead of nested if's
+// =========================
+const street = (user) => {
+  const address = user.address
+
+  if (address) {
+    return address.street
+  } else {
+    return 'no street'
+  }
+}
+
+QUnit.test('Ex1: street', (assert) => {
+  const user = { address: { street: { name: 'Willow' } } }
+  assert.deepEqual(street(user), { name: 'Willow' })
+  assert.equal(street({}), 'no street')
+})
+
+// Ex1: Refactor streetName to use Either instead of nested if's
+// =========================
+const streetName = (user) => {
+  const address = user.address
+
+  if (address) {
+    const street = address.street
+
+    if (street) {
+      return street.name
+    }
+  }
+
+  return 'no street'
+}
+
+QUnit.test('Ex1: streetName', (assert) => {
+  const user = { address: { street: { name: 'Willow' } } }
+  assert.equal(streetName(user), 'Willow')
+  assert.equal(streetName({}), 'no street')
+  assert.equal(streetName({ address: { street: null } }), 'no street')
+})
+
+// Ex2: Refactor parseDbUrl to return an Either instead of try/catch
+// =========================
+const parseDbUrl = (cfg) => {
+  try {
+    const c = JSON.parse(cfg) // throws if it can't parse
+    return c.url.match(DB_REGEX)
+  } catch (e) {
+    return null
+  }
+}
+
+QUnit.test('Ex1: parseDbUrl', (assert) => {
+  const config = '{"url": "postgres://sally:muppets@localhost:5432/mydb"}'
+  assert.equal(parseDbUrl(config)[1], 'sally')
+  assert.equal(parseDbUrl(), null)
+})
+
+// Ex3: Using Either and the functions above, refactor startApp
+// =========================
+const startApp = (cfg) => {
+  const parsed = parseDbUrl(cfg)
+
+  if (parsed) {
+    const [_, user, password, db] = parsed
+    return `starting ${db}, ${user}, ${password}`
+  } else {
+    return "can't get config"
+  }
+}
+
+QUnit.test('Ex3: startApp', (assert) => {
+  const config = '{"url": "postgres://sally:muppets@localhost:5432/mydb"}'
+  assert.equal(String(startApp(config)), 'starting mydb, sally, muppets')
+  assert.equal(String(startApp()), "can't get config")
+})
 ```
