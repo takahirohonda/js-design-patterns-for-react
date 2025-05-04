@@ -26,3 +26,10 @@ export const curryWithTypingAttempt = <T extends (...args: any[]) => any>(
   }
   return curried
 }
+
+const add = (a: number, b: number, c: number) => a + b + c
+const curriedAdd = curryWithTypingAttempt(add)
+
+curriedAdd(1)(2)(3) // ✅ Works
+curriedAdd(1, 2)(3) // ✅ Works
+curriedAdd(1, 2, 3) // ✅ Works
