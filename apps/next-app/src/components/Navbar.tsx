@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className="block md:hidden">
           <button
             onClick={toggleMobileMenu}
-            className="text-white focus:outline-none"
+            className="text-white focus:outline-hidden"
           >
             <svg
               className="w-6 h-6"

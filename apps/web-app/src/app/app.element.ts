@@ -17,7 +17,7 @@ export class AppElement extends HTMLElement {
         </div>
 
         <!--  HERO  -->
-        <div id="hero" class="rounded">
+        <div id="hero" class="rounded-sm">
           <div class="text-container">
             <h2>
               <svg
@@ -53,7 +53,7 @@ export class AppElement extends HTMLElement {
 
         <!--  MIDDLE CONTENT  -->
         <div id="middle-content">
-          <div id="learning-materials" class="rounded shadow">
+          <div id="learning-materials" class="rounded-sm shadow-sm">
             <h2>Learning materials</h2>
             <a href="https://nx.dev/getting-started/intro?utm_source=nx-project" target="_blank" rel="noreferrer" class="list-item-link">
               <svg
@@ -219,7 +219,7 @@ export class AppElement extends HTMLElement {
             </a>
           </div>
           <div id="other-links">
-            <a id="nx-console" class="button-pill rounded shadow" href="https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console&utm_source=nx-project" target="_blank" rel="noreferrer">
+            <a id="nx-console" class="button-pill rounded-sm shadow-sm" href="https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console&utm_source=nx-project" target="_blank" rel="noreferrer">
               <svg
                 fill="currentColor"
                 role="img"
@@ -238,7 +238,7 @@ export class AppElement extends HTMLElement {
             </a>
             <a
                 id="nx-console-jetbrains"
-                class="button-pill rounded shadow"
+                class="button-pill rounded-sm shadow-sm"
                 href="https://plugins.jetbrains.com/plugin/21060-nx-console"
                 target="_blank"
                 rel="noreferrer"
@@ -270,7 +270,7 @@ export class AppElement extends HTMLElement {
                   </span>
                 </span>
               </a>
-            <div id="nx-cloud" class="rounded shadow">
+            <div id="nx-cloud" class="rounded-sm shadow-sm">
               <div>
                 <svg id="nx-cloud-logo" role="img" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="transparent" viewBox="0 0 24 24">
                   <path stroke-width="2" d="M23 3.75V6.5c-3.036 0-5.5 2.464-5.5 5.5s-2.464 5.5-5.5 5.5-5.5 2.464-5.5 5.5H3.75C2.232 23 1 21.768 1 20.25V3.75C1 2.232 2.232 1 3.75 1h16.5C21.768 1 23 2.232 23 3.75Z" />
@@ -290,7 +290,7 @@ export class AppElement extends HTMLElement {
               <pre>nx connect</pre>
               <a href="https://nx.app/?utm_source=nx-project" target="_blank" rel="noreferrer"> What is Nx Cloud? </a>
             </div>
-            <a id="nx-repo" class="button-pill rounded shadow" href="https://github.com/nrwl/nx?utm_source=nx-project" target="_blank" rel="noreferrer">
+            <a id="nx-repo" class="button-pill rounded-sm shadow-sm" href="https://github.com/nrwl/nx?utm_source=nx-project" target="_blank" rel="noreferrer">
               <svg
                 fill="currentColor"
                 role="img"
@@ -310,7 +310,7 @@ export class AppElement extends HTMLElement {
         </div>
 
         <!--  COMMANDS  -->
-        <div id="commands" class="rounded shadow">
+        <div id="commands" class="rounded-sm shadow-sm">
           <h2>Next steps</h2>
           <p>Here are some things you can do with Nx:</p>
           <details>
