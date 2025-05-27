@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900 text-white min-h-screen">
+  <head>
+    <meta charset="UTF-8" />
+    <title>2025 F1 Drivers & Horoscopes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-4xl font-bold mb-8 text-center">
+        🔮 2025 F1 Drivers & Daily Horoscopes
+      </h1>
+      <table class="table-auto border-collapse border border-gray-700 w-full">
+        <thead>
+          <tr>
+            <th class="border border-gray-700 px-4 py-2">Headshot</th>
+            <th class="border border-gray-700 px-4 py-2">Full Name</th>
+            <th class="border border-gray-700 px-4 py-2">Horoscope</th>
+          </tr>
+        </thead>
+        <tbody id="driverTableBody">
+          <!-- Rows will be populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      const drivers = [
+        {
+          first_name: 'Lando',
+          last_name: 'Norris',
+          dob: '1999-11-13',
+        },
+        {
+          first_name: 'Charles',
+          last_name: 'Leclerc',
+          dob: '1997-10-16',
+        },
+        {
+          first_name: 'Lewis',
+          last_name: 'Hamilton',
+          dob: '1985-01-07',
+        },
+        {
+          first_name: 'Max',
+          last_name: 'Verstappen',
+          dob: '1997-09-30',
+        },
+        {
+          first_name: 'Oscar',
+          last_name: 'Piastri',
+          dob: '2001-04-06',
+        },
+        {
+          first_name: 'George',
+          last_name: 'Russell',
+          dob: '1998-02-15',
+        },
+        {
+          first_name: 'Fernando',
+          last_name: 'Alonso',
+          dob: '1981-07-29',
+        },
+        {
+          first_name: 'Pierre',
+          last_name: 'Gasly',
+          dob: '1996-02-07',
+        },
+        {
+          first_name: 'Yuki',
+          last_name: 'Tsunoda',
+          dob: '2000-05-11',
+        },
+        {
+          first_name: 'Esteban',
+          last_name: 'Ocon',
+          dob: '1996-09-17',
+        },
+        {
+          first_name: 'Liam',
+          last_name: 'Lawson',
+          dob: '2002-02-11',
+        },
+        {
+          first_name: 'Jack',
+          last_name: 'Doohan',
+          dob: '2003-01-20',
+        },
+        {
+          first_name: 'Andrea Kimi',
+          last_name: 'Antonelli',
+          dob: '2006-08-25',
+        },
+        {
+          first_name: 'Oliver',
+          last_name: 'Bearman',
+          dob: '2005-05-08',
+        },
+        {
+          first_name: 'Gabriel',
+          last_name: 'Bortoleto',
+          dob: '2004-10-14',
+        },
+        {
+          first_name: 'Nico',
+          last_name: 'Hulkenberg',
+          dob: '1987-08-19',
+        },
+        {
+          first_name: 'Alexander',
+          last_name: 'Albon',
+          dob: '1996-03-23',
+        },
+        {
+          first_name: 'Isack',
+          last_name: 'Hadjar',
+          dob: '2004-09-28',
+        },
+      ]
+
+      function getZodiacSign(month, day) {
+        const signs = [
+          { name: 'capricorn', start: [12, 22], end: [1, 19] },
+          { name: 'aquarius', start: [1, 20], end: [2, 18] },
+          { name: 'pisces', start: [2, 19], end: [3, 20] },
+          { name: 'aries', start: [3, 21], end: [4, 19] },
+          { name: 'taurus', start: [4, 20], end: [5, 20] },
+          { name: 'gemini', start: [5, 21], end: [6, 20] },
+          { name: 'cancer', start: [6, 21], end: [7, 22] },
+          { name: 'leo', start: [7, 23], end: [8, 22] },
+          { name: 'virgo', start: [8, 23], end: [9, 22] },
+          { name: 'libra', start: [9, 23], end: [10, 22] },
+          { name: 'scorpio', start: [10, 23], end: [11, 21] },
+          { name: 'sagittarius', start: [11, 22], end: [12, 21] },
+        ]
+
+        for (const sign of signs) {
+          if (
+            (month === sign.start[0] && day >= sign.start[1]) ||
+            (month === sign.end[0] && day <= sign.end[1])
+          ) {
+            return sign.name
+          }
+        }
+        return 'capricorn'
+      }
+
+      async function fetchHoroscope(sign) {
+        try {
+          const res = await fetch(
+            `https://api.aistrology.beandev.xyz/v1?sign=${sign}&day=today`,
+            {
+              method: 'POST',
+              headers: { Accept: 'application/json' },
+            }
+          )
+          const data = await res.json()
+          return data[0]
+        } catch {
+          return null
+        }
+      }
+
+      async function fetchHeadshotURLs() {
+        try {
+          const res = await fetch(
+            'https://api.openf1.org/v1/drivers?session_key=9979'
+          )
+          const data = await res.json()
+          const headshotMap = {}
+          data.forEach((driver) => {
+            const fullName = `${driver.first_name} ${driver.last_name}`
+            headshotMap[fullName] = driver.headshot_url
+          })
+          return headshotMap
+        } catch {
+          return {}
+        }
+      }
+
+      async function populateTable() {
+        const tbody = document.getElementById('driverTableBody')
+        const headshotMap = await fetchHeadshotURLs()
+
+        for (const driver of drivers) {
+          const [y, m, d] = driver.dob.split('-').map(Number)
+          const zodiac = getZodiacSign(m, d)
+          const horo = await fetchHoroscope(zodiac)
+          const fullName = `${driver.first_name} ${driver.last_name}`
+          const headshotURL = headshotMap[fullName] || ''
+
+          const tr = document.createElement('tr')
+          tr.className = 'hover:bg-gray-800'
+
+          tr.innerHTML = `
+            <td class="border border-gray-700 px-4 py-2">
+              <img src="${headshotURL}" alt="${
+            driver.first_name
+          }" class="w-16 h-16 object-cover rounded" />
+            </td>
+            <td class="border border-gray-700 px-4 py-2 font-semibold">
+              ${fullName}
+            </td>
+            <td class="border border-gray-700 px-4 py-2 text-sm">
+              ${
+                horo
+                  ? `
+                <p><strong>Sign:</strong> ${
+                  zodiac.charAt(0).toUpperCase() + zodiac.slice(1)
+                }</p>
+                <p><strong>Lucky Number:</strong> ${horo.lucky_number}</p>
+                <p><strong>Color:</strong> ${horo.color}</p>
+                <p><strong>Mood:</strong> ${horo.mood}</p>
+                <p><strong>Time:</strong> ${horo.lucky_time}</p>
+                <p class="italic mt-1">${horo.description}</p>
+              `
+                  : "<p class='text-red-400'>No horoscope available</p>"
+              }
+            </td>
+          `
+          tbody.appendChild(tr)
+        }
+      }
+
+      populateTable()
+    </script>
+  </body>
+</html>
