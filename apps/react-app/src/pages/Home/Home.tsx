@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 export const Home = () => {
   const [driverData, setDriverData] = useState([])
+
   useEffect(() => {
     fetch('https://api.openf1.org/v1/drivers?session_key=9979').then((data) => {
       data.json().then((data) => {
@@ -9,6 +10,7 @@ export const Home = () => {
       })
     })
   }, [])
+
   return (
     <div className="h-full bg-gray-900 text-gray-100">
       <div className="container mx-auto py-[40px]">
