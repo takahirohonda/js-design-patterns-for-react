@@ -7,5 +7,15 @@ export const notify = (data) => {
 }
 
 export const subscribe = (customer: (data: any) => void) => {
+  if (customers.includes(customer)) {
+    return
+  }
   customers.push(customer)
+}
+
+export const unsubscribe = (customer: (data: any) => void) => {
+  const index = customers.indexOf(customer)
+  if (index > -1) {
+    customers.splice(index, 1)
+  }
 }
