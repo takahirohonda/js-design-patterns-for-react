@@ -26,9 +26,17 @@ export const notifyCustomers = (data: ProductData) => {
   })
 }
 
-// this is wrong
+// this is wrong -> fix
 export const removeCustomer = (id: string) => {
   customers.filter((customer) => customer.id !== id)
+}
+
+// fix - get index and splicing the array is the most standard way to remove an item from an array
+export const removeCustomerFixed = (id: string) => {
+  const index = customers.findIndex((customer) => customer.id === id)
+  if (index > -1) {
+    customers.splice(index, 1)
+  }
 }
 
 export const createCustomer = (id: string) => {
