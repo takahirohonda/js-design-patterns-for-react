@@ -1,0 +1,9 @@
+{
+  "name": "js-exercise",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/js-exercise/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project js-exercise --web",
+  "targets": {}
+}

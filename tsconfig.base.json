@@ -15,7 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "utils-observable": ["libs/utils-observable/src/index.ts"]
+      "js-ds-utils": ["libs/js-ds-utils/src/index.ts"],
+      "js-ds-utils/server": ["libs/js-ds-utils/src/server.ts"],
+      "js-exercise": ["libs/js-exercise/src/index.ts"],
+      "js-exercise/server": ["libs/js-exercise/src/server.ts"],
+      "utils-adapter": ["libs/utils-adapter/src/index.ts"],
+      "utils-adapter/server": ["libs/utils-adapter/src/server.ts"],
+      "utils-observable": ["libs/utils-observable/src/index.ts"],
+      "utils-observer": ["libs/utils-observer/src/index.ts"],
+      "utils-observer/server": ["libs/utils-observer/src/server.ts"],
+      "utils-sub-pub": ["libs/utils-sub-pub/src/index.ts"],
+      "utils-sub-pub/server": ["libs/utils-sub-pub/src/server.ts"]
     }
   },
   "exclude": ["node_modules"]

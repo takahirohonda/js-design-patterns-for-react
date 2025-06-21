@@ -23,7 +23,7 @@ yarn nx add @nx/next
 yarn nx g @nx/next:app apps/next-app
 # Add lib for next
 nx add @nx/next:lib
-nx g @nx/next:lib libs/my-next-lib
+nx g @nx/next:lib libs/js-exercise
 ```
 
 ## Upgrading Nx and all the associated nx modules

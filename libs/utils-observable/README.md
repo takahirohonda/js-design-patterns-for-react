@@ -1,7 +1,9 @@
-# utils-observable
+# Create Observable
 
-This library was generated with [Nx](https://nx.dev).
+## Key APIs for creating an observable in JS
 
-## Running unit tests
+### 1. Proxy
 
-Run `nx test utils-observable` to execute the unit tests via [Vitest](https://vitest.dev/).
+Knowing how to use `Proxy` is the most important thing to create an observable. Also `Reflect` is crucial.
+
+[Proxy and set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set)
