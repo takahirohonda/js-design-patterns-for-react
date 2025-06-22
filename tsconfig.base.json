@@ -21,9 +21,15 @@
       "js-exercise/server": ["libs/js-exercise/src/server.ts"],
       "utils-adapter": ["libs/utils-adapter/src/index.ts"],
       "utils-adapter/server": ["libs/utils-adapter/src/server.ts"],
+      "utils-array-set-list": ["libs/utils-array-set-list/src/index.ts"],
+      "utils-array-set-list/server": [
+        "libs/utils-array-set-list/src/server.ts"
+      ],
       "utils-observable": ["libs/utils-observable/src/index.ts"],
       "utils-observer": ["libs/utils-observer/src/index.ts"],
       "utils-observer/server": ["libs/utils-observer/src/server.ts"],
+      "utils-recursion": ["libs/utils-recursion/src/index.ts"],
+      "utils-recursion/server": ["libs/utils-recursion/src/server.ts"],
       "utils-sub-pub": ["libs/utils-sub-pub/src/index.ts"],
       "utils-sub-pub/server": ["libs/utils-sub-pub/src/server.ts"]
     }
