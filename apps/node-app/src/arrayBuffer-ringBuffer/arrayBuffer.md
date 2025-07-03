@@ -1,3 +1,16 @@
+# Array
+
+Creating an array buffer
+
+```ts
+const arrayBuffer = new ArrayBuffer(3)
+console.log(arrayBuffer)
+```
+
+```bash
+ArrayBuffer { [Uint8Contents]: <00 00 00>, byteLength: 3 }
+```
+
 ## Notes
 
 If you set ArrayBuffer length to 5 and try to create Uint16Array, we get this error:

@@ -1,0 +1,9 @@
+{
+  "name": "fp-exercise",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/fp-exercise/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project fp-exercise --web",
+  "targets": {}
+}

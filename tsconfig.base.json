@@ -15,6 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "fp-exercise": ["libs/fp-exercise/src/index.ts"],
+      "fp-exercise/server": ["libs/fp-exercise/src/server.ts"],
       "js-ds-utils": ["libs/js-ds-utils/src/index.ts"],
       "js-ds-utils/server": ["libs/js-ds-utils/src/server.ts"],
       "js-exercise": ["libs/js-exercise/src/index.ts"],
