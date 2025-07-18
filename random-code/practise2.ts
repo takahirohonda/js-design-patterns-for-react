@@ -1,6 +1,10 @@
 const listeners: ((data: unknown) => void)[] = []
 
 export const subscribe = (listener: (data: unknown) => void): void => {
+  const hasAlreadySubscribed = listeners.includes(listener)
+  if (hasAlreadySubscribed) {
+    return
+  }
   listeners.push(listener)
 }
 
