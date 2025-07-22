@@ -12,7 +12,7 @@ flowchart LR
     key3["key3 ➜ Node C"]
   end
 
-  subgraph UsageOrder [Doubly Linked List (Most → Least Recently Used)]
+  subgraph UsageOrder [Doubly Linked List: Most to Least Recently Used◊]
     head((HEAD)) --> A["Node A (key1: 1)"] --> B["Node B (key2: 2)"] --> C["Node C (key3: 3)"] --> tail((TAIL))
     C --> B
     B --> A
