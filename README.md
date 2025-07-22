@@ -14,7 +14,7 @@ npx create-nx-workspace --pm yarn
 yarn add nx@latest -D
 yarn nx init
 yarn add nx add @nx/react
-yarn nx g @nx/react:app apps/react-app
+yarn nx g @nx/react:app apps/canva-app
 # Add lib for react
 yarn nx g @nx/react:library libs/my-react-lib
 # Or just add lib
