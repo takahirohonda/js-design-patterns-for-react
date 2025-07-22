@@ -7,13 +7,23 @@ The key to write a recursion algorithm is:
 
 ## Maze Solver
 
-[
-`##########E#`,
-`# `,
-`##S#########`,
-]
+- Maze example.
 
-<- # ->
+<pre>
+##########E#
+#          #
+##S#########
+</pre>
+
+- Array representation of the maze
+
+```ts
+const maze = [
+'##########E#',
+'#          #,
+'##S#########',
+]
+```
 
 **Base Case**
 

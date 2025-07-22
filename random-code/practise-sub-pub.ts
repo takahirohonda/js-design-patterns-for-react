@@ -44,3 +44,16 @@ export const unsubscribe = (eventName: string, listener: any) => {
 export const unsubscribeAll = (eventName: string) => {
   delete listeners[eventName]
 }
+
+const observer = Symbol('observer')
+const makeObservable = (object) => {
+  object[observer] = []
+  object.observe = (callback) => {
+    object[observer].push(callback)
+  }
+  return new Proxy(object, {
+    set: (target, key, value, receiver) => {
+      const success = Reflect.set(target, key, value, receiver)
+    },
+  })
+}

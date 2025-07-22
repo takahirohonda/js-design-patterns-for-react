@@ -1,3 +1,5 @@
+// We use a Symbol here to create a unique, non-enumerable property key for storing observers on the target object.
+// This prevents accidental name collisions with existing or future properties on the target object.
 const observers = Symbol('observers')
 
 export const makeObservable = (target: any) => {
