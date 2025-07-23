@@ -1,72 +1,36 @@
-import { LinkedListNode } from './practise2'
+const palindrome = (str1: string, str2: string) => {
+  const reversedStr1 = str1.split('').reverse().join('').toLowerCase()
+  return reversedStr1 === str2.toLowerCase()
+}
 
-export class LinkedList<T> {
-  private head?: LinkedListNode<T> | null = null
-  private tail?: LinkedListNode<T> | null = null
-  private length = 0
-
-  append(value: T): void {
-    const newNode: LinkedListNode<T> = {
-      value,
-      next: undefined,
-    }
-
-    if (!this.head && !this.tail) {
-      this.head = newNode
-      this.tail = newNode
-    } else {
-      this.tail!.next = newNode
-      this.tail = newNode
-    }
-
-    this.length++
-  }
-
-  prepend(value: T): void {
-    const newNode: LinkedListNode<T> = {
-      value,
-      next: undefined,
-    }
-
-    if (!this.head && !this.tail) {
-      this.head = newNode
-      this.tail = newNode
-    } else {
-      newNode.next = this.head || undefined
-      this.head = newNode
-    }
-    this.length++
-  }
-
-  delete(value: T): void {
-    if (this.length === 0) {
-      return
-    }
-
-    let currentNode = this.head
-    let previousNode: LinkedListNode<T> | undefined = undefined
-
-    while (currentNode) {
-      if (currentNode.value === value) {
-        if (previousNode) {
-          previousNode.next = currentNode.next
-        } else {
-          this.head = currentNode.next
-        }
-      }
-      previousNode = currentNode
-      currentNode = currentNode.next
-    }
-  }
-
-  find(value: T): LinkedListNode<T> | undefined {
-    let currentNode = this.head
-    while (currentNode) {
-      if (currentNode.value === value) {
-        return currentNode
-      }
-      currentNode = currentNode.next
-    }
+export const mostFrequentChar = (input: string) => {
+  const charCounter = {}
+  const charArray = input.toUpperCase().split('')
+  const answer: string[] = []
+  const charArrayLength = charArray.length
+  if (charArrayLength === 0) {
     return undefined
   }
+
+  if (charArrayLength === 1) {
+    return charArray
+  }
+  charArray.forEach((char) => {
+    const count = charCounter[char]
+    const currentMax = charCounter[answer[0]]
+    if (count === undefined || typeof count !== 'number') {
+      charCounter[char] = 1
+    } else {
+      const incrementedCount = count + 1
+
+      charCounter[char] = incrementedCount
+      if (incrementedCount > currentMax) {
+        answer.splice(0, answer.length)
+      } else if (incrementedCount === currentMax) {
+        answer.push(char)
+      }
+    }
+  })
+
+  return answer
 }

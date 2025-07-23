@@ -1,3 +1,7 @@
+# Things to consolidate...
+
+The difference between array.splice and array.slice
+
 # Code Challenges Examples
 
 ## 1. Basic
