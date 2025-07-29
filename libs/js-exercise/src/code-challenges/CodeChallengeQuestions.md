@@ -25,7 +25,7 @@ console.log(mostFrequentChar(input)) // Output: C
 
 4. JS code challenge examples
 
-https://jscodechallenges.vercel.app/interview_questions/faq_js
+https://jscodechallenges.vercel.app/
 
 5. JS Challenges
 

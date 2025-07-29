@@ -19,16 +19,3 @@ export const unsubscribe = (customer: (data: any) => void) => {
     customers.splice(index, 1)
   }
 }
-
-const subscribe2 = (data) => {
-  customers.forEach((customer) => {
-    customer(data)
-  })
-}
-
-const unsubscribe2 = (customer) => {
-  const index = customer.indexof(customer)
-  if (index > -1) {
-    customer.splice(index, 1)
-  }
-}
