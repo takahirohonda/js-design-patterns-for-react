@@ -2,19 +2,14 @@
 
 Examples of JS Design Patterns that can be used in a React App.
 
-## In Progress...
+## Starting project with Nx
 
 ```bash
-# https://nx.dev/getting-started/installation
-# Not sure.. not working in this repo.. Get Failed to create a workspace error.
-npx create-nx-workspace --pm yarn
-```
-
-```bash
-yarn add nx@latest -D
+yarn init -y
+yarn add nx@latest -D # use the latest node if we go with @latest
 yarn nx init
 yarn add nx add @nx/react
-yarn nx g @nx/react:app apps/canva-app
+yarn nx g @nx/react:app apps/react-app
 # Add lib for react
 yarn nx g @nx/react:library libs/my-react-lib
 # Or just add lib
@@ -24,6 +19,11 @@ yarn nx g @nx/next:app apps/next-app
 # Add lib for next
 nx add @nx/next:lib
 nx g @nx/next:lib libs/fp-exercise
+
+#
+yarn add @nx/node -D
+yarn g @nx/node
+nx g @nx/node:app node-app
 ```
 
 ## Upgrading Nx and all the associated nx modules
