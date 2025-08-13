@@ -28,17 +28,18 @@ export const longestAscendingSequence = (arr: number[]): number[] => {
   }
 
   tempArray.push(arr[0])
+  let counter = 1
   for (let i = 0; i < arr.length - 2; i++) {
-    let counter = 1
     if (arr[i + 1] > arr[i]) {
       counter += 1
       tempArray.push(arr[i + 1])
     } else {
       newArray.push(tempArray)
       tempArray = [arr[i + 1]]
-      if (longestIndex < counter) {
+      if (newArray[longestIndex].length < counter) {
         longestIndex = newArray.length - 1
       }
+      counter = 1
     }
   }
 
