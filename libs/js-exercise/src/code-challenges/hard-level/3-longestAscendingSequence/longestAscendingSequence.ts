@@ -11,22 +11,36 @@
  * longestAscendingSequence([5, 4, 3, 2, 1]) // returns [5]
  */
 export const longestAscendingSequence = (arr: number[]): number[] => {
-  // TODO: Implement the function
-  let longest: number[] = []
+  const newArray: number[][] = []
   let tempArray: number[] = []
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] < arr[i + 1]) {
-      if (tempArray.length === 0) {
-        tempArray.push(...[arr[i], arr[i + 1]])
-      } else {
-        tempArray.push(...[arr[i + 1]])
-      }
+  let longestIndex = 0
+
+  // check for empty array, array with one element, array with all the same element
+  if (arr.length < 1) {
+    return arr
+  }
+
+  const map = new Map()
+  arr.forEach((elem, index) => map.set(elem, index))
+
+  if (map.size === 1) {
+    return [arr[0]]
+  }
+
+  tempArray.push(arr[0])
+  for (let i = 0; i < arr.length - 2; i++) {
+    let counter = 1
+    if (arr[i + 1] > arr[i]) {
+      counter += 1
+      tempArray.push(arr[i + 1])
     } else {
-      if (tempArray.length >= longest.length) {
-        longest = tempArray
+      newArray.push(tempArray)
+      tempArray = [arr[i + 1]]
+      if (longestIndex < counter) {
+        longestIndex = newArray.length - 1
       }
-      tempArray = []
     }
   }
-  return longest.length > 0 ? longest : [arr[0]]
+
+  return newArray[longestIndex]
 }
