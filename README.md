@@ -22,8 +22,8 @@ nx g @nx/next:lib libs/fp-exercise
 
 #
 yarn add @nx/node -D
-yarn g @nx/node
-nx g @nx/node:app node-app
+yarn nx g @nx/node:app apps/node-app
+yarn nx g @nx/node:library libs/my-utils
 ```
 
 ## Upgrading Nx and all the associated nx modules
