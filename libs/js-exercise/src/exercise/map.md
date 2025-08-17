@@ -69,3 +69,22 @@ arr.forEach((value, index) => {
 
 console.log(map.get(1)) // 'y'
 ```
+
+## real life map example
+
+```ts
+export const createColumnIndexMap = (
+  columns: string[]
+): Map<string, number> => {
+  const map = new Map<string, number>()
+  columns.forEach((column, index) => map.set(column, index))
+  return map
+}
+
+export const getValueByColumnName = (
+  columnIndexMap: Map<string, number>,
+  columnName: string
+) => {
+  return columnIndexMap.get(columnName)
+}
+```
