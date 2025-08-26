@@ -31,6 +31,12 @@ https://jscodechallenges.vercel.app/
 
 https://programiz.pro/community-challenges/javascript
 
+```js
+document
+  .querySelector('.community-challenge-description.disable-select')
+  .classList.remove('disable-select')
+```
+
 6. JSCodebox
 
 https://jscodebox.com/

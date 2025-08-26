@@ -1,1 +1,3 @@
-export const fibonacci = (n: number): number => {}
+export const fibonacci = (n: number) => {
+  // implement logic
+}

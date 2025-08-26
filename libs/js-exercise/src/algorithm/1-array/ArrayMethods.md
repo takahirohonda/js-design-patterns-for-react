@@ -38,7 +38,7 @@ console.log(lastElement) // Output: "cherry"
 
 ```js
 const arr = ['apple', 'banana', 'cherry']
-const lastElement = arr.pop()
+const lastElement = arr.pop() // immutable
 console.log(lastElement) // Output: "cherry"
 console.log(arr) // Output: ["apple", "banana"] (original array modified)
 ```
