@@ -4,7 +4,7 @@
 
 1. Pick a pivot element.
 2. Partition the array so elements less than the pivot go to the left, and greater one go to the right.
-3. Recursively sorting the left and right subarrays.
+3. Recursively sorting the left and right sub-arrays.
 
 `[0     P        N]`
 `[0  p1 p   p2   N]`
