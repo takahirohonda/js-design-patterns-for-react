@@ -14,11 +14,10 @@ export const reverseLetterNumberRemain = (str: string) => {
     `checking strArray & reversedArrayLetterOnly: ${strArray}, ${reversedArrayLetterOnly}`
   )
 
-  for (let i = 0; i < strArray.length - 1; i++) {
-    let counter = 0
+  for (let i = 0; i < strArray.length; i++) {
     if (/[a-zA-Z]/.test(strArray[i])) {
-      transformedArray[i] = reversedArrayLetterOnly[counter]
-      counter += 1
+      transformedArray[i] = reversedArrayLetterOnly[0]
+      reversedArrayLetterOnly.splice(0, 1)
     }
   }
 
