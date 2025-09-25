@@ -33,7 +33,11 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/node-app-e2e/**/*"]
+      "exclude": [
+        "apps/node-app-e2e/**/*",
+        "apps/mpc-server-e2e/**/*",
+        "apps/mcp-server-e2e/**/*"
+      ]
     },
     {
       "plugin": "@nx/react/router-plugin",
