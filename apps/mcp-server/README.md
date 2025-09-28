@@ -69,9 +69,9 @@ dist/apps/mcp-server/main.js
 
 3. Configure.
 
-- commands is the node path (use `which node` to find the path)
-- args are the path for the transpiled mcp server file.
-- Suppressing deprecation messages is good practice.
+- `command` is the node path (use `which node` to find the path)
+- `args` are the path for the transpiled mcp server file. Make sure that it's an array.
+- Suppressing deprecation messages is good practice so that we don't cloud stdout.
 
 ```json
 {
@@ -87,8 +87,24 @@ dist/apps/mcp-server/main.js
 }
 ```
 
+4. Restart the desktop app (otherwise, the app won't register the server)
+
 ## Trouble shooting MCP
 
 ### 1. Remove console.log and replace it with console.error
 
 `stdout` needs to be clean for Claude Desktop. Make `stderr` receives the debug message. In this way, the debug messages won't interfere with the protocol.
+
+## More LLM info
+
+What is the purpose of the 'temperature' parameter when invoking an LLM?
+
+The temperature parameter controls the level of randomness or variance in the LLM's responses. A temperature of 1 means it will always choose the best result with no variance, while a temperature around 0.8 introduces some variability in responses.
+
+Why should you minimize the number of tools exposed to an LLM?
+
+Exposing too many tools can cause confusion for the LLM, waste input tokens, and potentially lead to poor tool selection or performance. It's recommended to only expose tools that will be actively used.
+
+What is an LLM's default behavior when it has multiple tools for a similar task?
+
+When an LLM has multiple tools for a similar task, it may become confused, potentially try to use both tools, or choose one arbitrarily, which can lead to suboptimal or inconsistent results.
