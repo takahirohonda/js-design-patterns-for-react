@@ -60,3 +60,35 @@ echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "ad
 ```
 
 dist/apps/mcp-server/main.js
+
+## Configuring Claude Desktop to use a local MCP server
+
+1. Download Desktop app
+
+2. Settings -> Developer -> Edit Config (This will open the config file).
+
+3. Configure.
+
+- commands is the node path (use `which node` to find the path)
+- args are the path for the transpiled mcp server file.
+- Suppressing deprecation messages is good practice.
+
+```json
+{
+  "mcpServers": {
+    "demo-server": {
+      "command": `Output from which node`,
+      "args": [`Path to the mcp server file`],
+      "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+      }
+    }
+  }
+}
+```
+
+## Trouble shooting MCP
+
+### 1. Remove console.log and replace it with console.error
+
+`stdout` needs to be clean for Claude Desktop. Make `stderr` receives the debug message. In this way, the debug messages won't interfere with the protocol.

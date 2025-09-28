@@ -25,13 +25,15 @@ server.registerTool(
     }
   }
 )
-console.log('Registered tools: add')
-console.log('checking to see if this is running...')
+
+// We need to keep stdout clean for Claude desktop.
+console.error('Registered tools: add')
+console.error('checking to see if this is running...')
 
 // Start receiving messages on stdin and sending messages on stdout
 const transport = new StdioServerTransport()
 ;(async () => {
-  console.log('Starting MCP server...')
+  console.error('Starting MCP server...')
   await server.connect(transport)
-  console.log('MCP server started and listening.')
+  console.error('MCP server started and listening.')
 })()
