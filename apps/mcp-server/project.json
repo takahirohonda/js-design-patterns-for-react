@@ -16,7 +16,13 @@
         "bundle": false,
         "main": "apps/mcp-server/src/main.ts",
         "tsConfig": "apps/mcp-server/tsconfig.app.json",
-        "assets": ["apps/mcp-server/src/assets"],
+        "assets": [
+          {
+            "input": "apps/mcp-server/src/assets",
+            "glob": "**/*",
+            "output": "assets"
+          }
+        ],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,

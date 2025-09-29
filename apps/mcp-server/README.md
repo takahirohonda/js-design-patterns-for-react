@@ -108,3 +108,45 @@ Exposing too many tools can cause confusion for the LLM, waste input tokens, and
 What is an LLM's default behavior when it has multiple tools for a similar task?
 
 When an LLM has multiple tools for a similar task, it may become confused, potentially try to use both tools, or choose one arbitrarily, which can lead to suboptimal or inconsistent results.
+
+# Tools vs Resources
+
+What is the key difference between a resource and a tool in the context of LLM interactions?
+
+A resource is a user-driven method of providing additional static context to an LLM, while a tool is an LLM-initiated method of fetching additional information or capabilities.
+
+What is a characteristic of static resources in LLM interactions?
+
+Static resources are fixed and cannot be dynamically modified. They provide a single, unchanging piece of context to the LLM.
+
+How might RAG (Retrieval Augmented Generation) be implemented with resources or tools?
+
+RAG can be implemented with tools by searching a vector-based database and fetching related context, or with resources by providing pre-selected vector search databases directly to the LLM.
+
+What is the fundamental difference between pushing and pulling information in LLM interactions?
+
+Pushing (resources) involves directly providing context to the LLM, while pulling (tools) allows the LLM to independently fetch additional information or capabilities as needed.
+
+What limitation currently exists with static resources in LLM interactions?
+
+Static resources can currently only provide one fixed piece of context without the ability to customize or parameterize the response.
+
+## Root, Sampling, Elicitation
+
+Roots represent a directory or subset of a file system where an agent can view, modify, update, read, and delete files, similar to how one might use VS Code in a directory
+
+In the context of MCP, what does 'Sampling' specifically mean?
+
+Sampling is the ability for an MCP server to directly prompt an LLM, allowing the server to interact with the language model without a human intermediary while still maintaining human-in-the-loop review capabilities
+
+What is 'Elicitation' in the MCP protocol?
+
+Elicitation is a process where an MCP server can pause a tool call and request additional information from the user to complete a task, such as asking follow-up questions when more context is needed to fill out a form
+
+What is a key principle of the MCP protocol regarding human interaction?
+
+It is part of the protocol that there should always be a human-in-the-loop review, though individual clients can choose how strictly to implement this requirement
+
+What unique feature does the sampling workflow provide in MCP?
+
+The sampling workflow allows humans to view, modify, and review both the prompt sent to the LLM and the response received, providing control and transparency at every step of the AI interaction
