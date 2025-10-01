@@ -150,3 +150,15 @@ It is part of the protocol that there should always be a human-in-the-loop revie
 What unique feature does the sampling workflow provide in MCP?
 
 The sampling workflow allows humans to view, modify, and review both the prompt sent to the LLM and the response received, providing control and transparency at every step of the AI interaction
+
+## Claude code
+
+```
+npm install -g @anthropic-ai/claude-code
+```
+
+```
+claude mcp --help
+
+claude mcp list
+```
