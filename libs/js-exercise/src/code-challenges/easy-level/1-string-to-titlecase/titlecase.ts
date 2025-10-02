@@ -5,9 +5,24 @@ export const stringToTitleCase = (str: string) => {
   // to be implemented
 
   const array = str.split(' ').map((word) => {
-    const tempWord = word
-    return word.replace(tempWord.charAt(0), tempWord.charAt(0).toUpperCase())
+    if (!word.includes('-')) {
+      return capitalise(word)
+    } else {
+      return word
+        .split('-')
+        .map((word) => {
+          return capitalise(word)
+        })
+        .join('-')
+    }
   })
 
   return array.join(' ')
+}
+
+function capitalise(str: string) {
+  return (
+    str.substring(0, 1).toUpperCase() +
+    str.substring(1, str.length).toLowerCase()
+  )
 }
