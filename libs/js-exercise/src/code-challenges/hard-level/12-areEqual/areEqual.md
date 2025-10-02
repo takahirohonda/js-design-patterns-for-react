@@ -30,3 +30,67 @@ obj2 = [1, 3, 2]
 Output: false
 
 Reason: The two arrays [1, 2, 3] and [1, 3, 2] are equal because although they have the same elements their orders are different.
+
+# Potential issues for my solutions...
+
+⚠️ Potential issues:
+
+typeof null → returns "object", so it could behave oddly with null inputs.
+
+```ts
+areEqual(null, null) // true (ok)
+areEqual(null, {}) // false (ok, but relies on JSON.stringify behavior)
+```
+
+JSON.stringify quirks
+
+Objects with different key order stringify differently in some cases:
+
+```ts
+JSON.stringify({ a: 1, b: 2 }) === JSON.stringify({ b: 2, a: 1 })
+// false, even though shallow equality would say true
+```
+
+(But since the problem only allows numbers, strings, arrays — not objects — you’re fine here.)
+
+Array edge cases
+
+Sparse arrays behave weirdly:
+
+```ts
+JSON.stringify([1, , 3]) // "[1,null,3]"
+```
+
+But probably not relevant unless your test includes these.
+
+```ts
+// my solutions
+
+// no need to do JSON.stringify because the problem states:
+// Suppose the input elements are either numbers, strings or arrays.
+const areSameType = (a: unknown, b: unknown) => typeof a === typeof b
+
+export const areEqual = (a: unknown, b: unknown) => {
+  if (!areSameType(a, b)) {
+    return false
+  }
+
+  return JSON.stringify(a) === JSON.stringify(b)
+}
+
+// refactored
+export const areEqual = (a: unknown, b: unknown): boolean => {
+  if (typeof a !== typeof b) return false
+
+  if (typeof a === 'string' || typeof a === 'number') {
+    return a === b
+  }
+
+  if (Array.isArray(a) && Array.isArray(b)) {
+    if (a.length !== b.length) return false
+    return a.every((val, i) => val === b[i])
+  }
+
+  return false
+}
+```
