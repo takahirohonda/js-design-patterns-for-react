@@ -26,3 +26,10 @@ function capitalise(str: string) {
     str.substring(1, str.length).toLowerCase()
   )
 }
+
+/*
+ * str.charAt(0) + slice is cleaner than substring
+ */
+export function capitaliseImproved(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+}
