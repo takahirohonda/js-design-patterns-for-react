@@ -36,7 +36,8 @@
       "exclude": [
         "apps/node-app-e2e/**/*",
         "apps/mpc-server-e2e/**/*",
-        "apps/mcp-server-e2e/**/*"
+        "apps/mcp-server-e2e/**/*",
+        "apps/java-prac-e2e/**/*"
       ]
     },
     {

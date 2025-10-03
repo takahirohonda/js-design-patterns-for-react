@@ -1,0 +1,5 @@
+# folder for compiled Java file
+build
+
+# for junit jar
+lib

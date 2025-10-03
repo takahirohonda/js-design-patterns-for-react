@@ -1,0 +1,75 @@
+{
+  "name": "java-prac",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/java-prac/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "javac": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "command": "javac"
+    },
+    "java": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "./apps/java-prac/run-java.sh"
+      }
+    },
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/java-prac",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/java-prac/src/main.ts",
+        "tsConfig": "apps/java-prac/tsconfig.app.json",
+        "assets": ["apps/java-prac/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "java-prac:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "java-prac:build:development"
+        },
+        "production": {
+          "buildTarget": "java-prac:build:production"
+        }
+      }
+    },
+    "test": {
+      "options": {
+        "passWithNoTests": true
+      }
+    }
+  }
+}

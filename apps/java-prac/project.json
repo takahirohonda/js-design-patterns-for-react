@@ -1,0 +1,23 @@
+{
+  "name": "java-prac",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/java-prac/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "java": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "./apps/java-prac/run-java.sh"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "./apps/java-prac/run-tests.sh"
+      }
+    }
+  }
+}
