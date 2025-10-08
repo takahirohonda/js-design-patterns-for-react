@@ -5,7 +5,7 @@
   "projectType": "application",
   "tags": [],
   "targets": {
-    "java": {
+    "run-java": {
       "executor": "nx:run-commands",
       "cache": false,
       "options": {
