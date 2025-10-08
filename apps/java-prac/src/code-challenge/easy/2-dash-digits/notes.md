@@ -24,7 +24,7 @@ public static String dashDigits(int number) {
   }
 ```
 
-StringBuilder is the preferred way to build strings in a loop — it’s efficient.
+`StringBuilder` is the preferred way to build strings in a loop — it’s efficient.
 
 String.concat() returns a new string but doesn’t change the original one — so your earlier code wasn’t updating finalString.
 

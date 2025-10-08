@@ -1,5 +1,3 @@
-
-
 public class DashDigits {
   public static String dashDigits(int number) {
 
