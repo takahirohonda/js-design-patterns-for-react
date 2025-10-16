@@ -15,7 +15,7 @@ int[] nums = new int[3];
 String[] names = new String[3];
 ```
 
-Use `ArrayList` if you need to use JS equivalent.
+Use `ArrayList` if you need to use JS equivalent. JS array is an dynamic array, not linked list.
 
 | Feature             | Java Array     | Java List (`ArrayList`) | JavaScript Array   |
 | ------------------- | -------------- | ----------------------- | ------------------ |

@@ -5,7 +5,7 @@
 - Vector
 - Stack - implements stack data structure.
 
-`ArrayList` is not a linked list. No chain of linked nodes. It's a resizable array. Whenever the size increases, it creates a new array.
+`ArrayList` is not a linked list. No chain of linked nodes. It's a resizable array. Whenever the size increases, it creates a new array. JS array is an dynamic array, not linked list. If you need a linked list in JS, you need to implement it manually in JS.
 
 `LinkedList` is built from linked nodes.
 
