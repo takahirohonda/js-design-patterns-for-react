@@ -2,6 +2,8 @@
 
 Java provides several wrapper classes for numbers: `Integer`, `Double`, `Float`, `Long`, `Short`, `Byte`. Here is a concise reference for common methods.
 
+> **Tip:** For performance-critical code, prefer primitive types (`int`, `double`) over wrapper classes to avoid unnecessary object creation.
+
 ---
 
 ## 1. Creation & Basic Info
@@ -94,4 +96,30 @@ double minDouble = Double.MIN_VALUE;
 
 ---
 
-> **Tip:** For performance-critical code, prefer primitive types (`int`, `double`) over wrapper classes to avoid unnecessary object creation.
+# More notes
+
+## (1) Finding Even number with Java and JS
+
+| Language       | Best Simple Check | Best for Arrays/Lists               | Notes                               |
+| -------------- | ----------------- | ----------------------------------- | ----------------------------------- |
+| **Java**       | `num % 2 == 0`    | `.stream().filter(n -> n % 2 == 0)` | Clear, efficient                    |
+| **JavaScript** | `num % 2 === 0`   | `.filter(n => n % 2 === 0)`         | Clean and expressive                |
+| **Both**       | `(num & 1) == 0`  | —                                   | Bitwise (advanced, micro-optimized) |
+
+```java
+import java.util.*;
+import java.util.stream.Collectors;
+
+// Finding even number from the array of string values
+public class EvenNumbers {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+
+        List<Integer> evens = numbers.stream()
+                                     .filter(n -> n % 2 == 0)
+                                     .collect(Collectors.toList());
+
+        System.out.println(evens); // [2, 4, 6]
+    }
+}
+```

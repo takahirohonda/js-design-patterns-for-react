@@ -2,7 +2,11 @@
 
 > **Tip:** Use `StringBuilder` instead of `String` for heavy string modifications to improve performance, because `String` is immutable and creates new objects on every modification.
 
-Java `String` is immutable. Here are common methods you’ll use:
+> Strings are immutable in Java, so most methods return a **new string** instead of modifying the original.
+
+Java `String` is immutable. It's an object, not a primitive in Java. In Js, string is a primitive. Here are common methods you’ll use:
+
+In Java `byte, short, int, long, float, double, char, boolean` are primitives. No string primitive in Java while JS has string as a primitive.
 
 ---
 
@@ -108,5 +112,3 @@ boolean matches = s.matches("\\w+");    // regex match
 ```
 
 ---
-
-> **Tip:** Strings are immutable in Java, so most methods return a **new string** instead of modifying the original.
