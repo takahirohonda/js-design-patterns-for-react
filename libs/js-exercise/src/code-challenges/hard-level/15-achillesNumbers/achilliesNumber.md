@@ -22,3 +22,14 @@ the result should be:
 "Achilles"
 
 Reason: `72 = 2 ^ 3 × 3 ^ 2`, where both prime factors have at least a power of 2.
+
+
+## Terms
+
+*Prime factor*
+- A number that divides it exactly and prime
+
+*Exponent*
+- How many times to multiply a number by itself. It's also called power
+- a = base & n = exponent. a to the power of n.
+
